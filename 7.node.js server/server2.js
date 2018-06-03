@@ -27,7 +27,7 @@ var server = http.createServer(function(request, response){
  
   if(path == '/'){
     response.setHeader('content-Type','text/html;charset=utf-8')
-    response.write('<!DOCTYPE>\n<html><head></head><body><a href="http://localhost:8888/style.css">css link</a>\n<a href="http://localhost:8888/main.js">script</a></body></html>')
+    response.write('<!DOCTYPE>\n<html><head></head><body><a href="/style.css">css link</a>\n<a href="/main.js">script</a></body></html>')
 	response.end()
   }else if(path =='/style.css'){
     response.setHeader('content-Type','text/html;charset=utf-8')
