@@ -4,7 +4,7 @@
     clear: both;
 }
 body{           
-    background-color: grey;            /*背景*/
+    background-color:black;            /*背景*/
     margin: 0;                            /*因为body有默认样式，所以让他等于0*/
 }
 .topNavBar{
