@@ -1,0 +1,31 @@
+body{
+  background:grey;
+}
+#yinyang{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #ffffff 0%,#ffffff 50%,#000000 51%,#000000 100%);
+  position:relative;
+}
+#yinyang::before{
+  content:'';
+  position:absolute;
+  height:14px;
+  width:14px;
+  border:43px solid black;
+  border-radius:50%;
+  top:55px;
+  background: white;
+}
+#yinyang::after{
+  content:'';
+  position:absolute;
+  height:14px;
+  width:14px;
+  border:43px solid white;
+  border-radius:50%;
+  top:55px;
+  right: 0px;
+  background: black;
+}
