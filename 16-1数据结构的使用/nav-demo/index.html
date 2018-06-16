@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>干哈呢</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <header></header>
-  <main></main>
+  <main>
+    <div id="main1"></div>
+  </main>
   <footer></footer>
   <script>
     var keys = {
@@ -18,14 +21,54 @@
       'length':3
     }
     var hash = {
-      q:'https://qq.com',
-      w:'https://weibo.com',
-      e:'https://ele.me',
-      r:'https://renren.com',
-      t:'https://taobao.com'
+      q:'www.qq.com',
+      w:'weibo.com',
+      e:'ele.me',
+      r:'renren.com',
+      t:'taobao.com'
     }
-    div1 = document.creatElement('div')
-    zhangsan.appendChild(div1)
+    //取出LocalStorage 中u对应的hash
+    var hashInLocalStorage = JSON.parse(localStorage.getItem('u')||'')
+    if(hashInLocalStorage){
+      hash = hashInLocalStorage
+    }
+
+    index = 0
+    while(index < keys.length){
+      div1 = document.createElement('div')
+      main1.appendChild(div1)                //向张三(main)里写入div 
+      
+      row = keys[index]
+      index1 = 0
+      while(index1 < row.length){
+        kbd1 = document.createElement('kbd')        //将一个标签kbd赋给kbd1
+        kbd1.textContent = row[index1]             //按行选,向kbd1里写内容
+        button1 = document.createElement("button")  //定义一个button,向里写入button标签
+
+        button1.textContent = '编辑'                  //向button里添加内容
+        button1.id = row[index1]
+        button1.onclick = function(abc){
+          key = abc.target.id
+          x = prompt('请输入一个网址') 
+          hash[key] = x
+          localStorage.setItem('u',JSON.stringify(hash))
+          console.log(hash)
+        }
+        div1.appendChild(kbd1)                      //向div里写入kbd
+        kbd1.appendChild(button1)                   //把button1加到kbd里面
+        index1 = index1 + 1
+      }
+      index = index + 1
+    }
+
+    document.onkeypress = function(abc){
+      console.log(abc['key'])
+      key = abc['key']
+      website = hash[key]
+      console.log(website)
+      window.open('http://'+website,'_blank')
+      // location.href = website
+    }
   </script>
 </body>
 </html>
